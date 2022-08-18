@@ -1,0 +1,16 @@
+{% extends 'layouts/layout.html' %}
+
+{% block titulo %}Registro{% endblock titulo %}
+
+{% block contenido %}
+    <h1 class='titulo'>Registro</h1>
+
+    <form action="" method='POST'>
+        {% csrf_token %}
+        {% for field in form_registro %}
+            {{field.label}}
+            <label>{{field}}</label>
+        {% endfor %}
+        <input type="submit" value='Registrarse'>
+    </form>
+{% endblock contenido %}

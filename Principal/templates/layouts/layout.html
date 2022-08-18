@@ -1,0 +1,45 @@
+{% load static %}
+
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi primer Blog | Master en Python</title>
+        <link rel="icon" href='{% static 'images/icono.ico' %}'>
+        <link rel='stylesheet' href='{% static 'styles.css' %}'>
+    </head>
+ 
+    <body>
+        <header>
+            <div id='logotipo'>
+                <img src='{% static 'images/logo.png' %}' />
+                <h1> {% block titulo %}{% endblock titulo %} | Primer Blog </h1>
+            </div>
+        </header>
+
+        {% include 'layouts/enlaces.html' %}
+        
+        <div class= 'barra'>
+            <span class= 'esquina-izquierda'></span>
+            <span class= 'relleno'></span>
+            <span class= 'esquina-derecha'></span>
+        </div>
+
+        <div id="content">
+            <section class= 'caja'>
+                {% block contenido %}
+                {% endblock contenido %}
+            </section>
+        </div>
+
+        <footer>
+            Proyecto con Python y Django | Todos los derechos reservados &copy; | {% now "d/m/Y" %}
+        </footer>
+    </body>
+
+</html>
+
+
+

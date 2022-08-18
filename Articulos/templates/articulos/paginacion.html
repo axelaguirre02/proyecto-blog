@@ -1,0 +1,19 @@
+<div class='paginacion'>
+    {% if articulos_obj.has_previous %}
+        <a href="?page={{articulos_obj.previous_page_number}}">&laquo; Atras</a>
+    {% else %}
+        <a href="#">&laquo; Atras</a>
+    {% endif %}
+
+    {% for i in articulos_obj.page_range %}
+        <li>
+            <a href="?page={{ i }}">{{ i }}</a>
+        </li>
+    {% endfor %}
+
+    {% if articulos_obj.has_next %}
+        <a href="?page={{articulos_obj.next_page_number}}">Siguiente &raquo;</a>
+    {% else %}
+        <a href="#">Siguiente &raquo;</a>
+    {% endif %}
+</div>

@@ -1,0 +1,26 @@
+{% for articulo in articulos %}
+<article class='article-item'>
+
+    {% if articulo.imagen != 'null' and articulo.imagen.url|length >= 1 %}
+    
+        <div class='image'>
+            <img src="{{articulo.imagen.url}}" />
+        </div>
+    
+    {% endif %}
+
+    <div class='dataimg'>
+        <h3>
+            <a href="{% url 'articulo' articulo.id %}">{{articulo.titulo}}</a>
+        </h3>
+
+        <span class='fecha'>{{articulo.creado}}</span>
+
+        <p class='contenido'>
+            {{articulo.contenido|safe}}
+        </p>
+    </div>
+
+    <div class='clearfix'></div>
+</article>   
+{% endfor %}

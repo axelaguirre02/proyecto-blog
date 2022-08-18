@@ -1,0 +1,26 @@
+{% extends 'layouts/layout.html' %}
+
+{% block titulo %}Inicio{% endblock titulo %}
+
+{% block contenido %}
+    <h1 class='titulo'>Inicio</h1>
+    <hr>
+    {% if messages %}
+        {% for message in messsages %}
+            <div class= 'alerta-mensaje'>
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if user.email %}
+
+        <h2>Bienvenido, {{request.user.first_name}}</h2>
+    
+    {% else %}
+
+        <h3>Inicie sesion para ver el contenido de la pagina</h3>
+
+    {% endif %}
+
+{% endblock contenido %}
